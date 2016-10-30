@@ -17,6 +17,7 @@ app.get('/', function(request, response) {
 
 app.get('/slack',function(request,response){
   console.log("hitting slack");
+  response.render('pages/slack');
 })
 
 app.post('/slackPost',function(request,response){
