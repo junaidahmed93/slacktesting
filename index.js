@@ -11,20 +11,30 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
+app.get('/', function (request, response) {
   response.render('pages/index');
 });
 
-app.get('/slack',function(request,response){
+app.get('/slack', function (request, response) {
   console.log("hitting slack");
   response.render('pages/slack');
 })
 
-app.post('/slackPost',function(request,response){
+app.post('/slackPost', function (request, response) {
   console.log(request.body);
+  
+  response.send({
+    "text": "It's 80 degrees right now.", "attachments": [
+      {
+        "text": "Partly cloudy today and tomorrow"
+      }
+    ]
+  })
+  
+  
 })
 
-app.listen(app.get('port'), function() {
+app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
 
