@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
-var request = require('request');
+var requestModule = require('request');
 
 var app = express();
 
@@ -35,7 +35,7 @@ app.post('/slackPost', function (request, response) {
 app.get('/redirect', function (request, response) {
   console.log("code : ", request.query.code);
   if (request.query.code) {
-    request({
+    requestModule({
       url: 'https://slack.com/api/oauth.access',
       
       method: 'POST',
