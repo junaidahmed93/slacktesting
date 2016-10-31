@@ -7,14 +7,8 @@ var app = express();
 
 
 app.use(bodyParser.urlencoded());
-app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
-var staticDIR = path.resolve(__dirname, "./static");
-app.use(express.static(staticDIR));
-
-
-
-
+app.set('port', (process.env.PORT || 3000));
+app.use(express.static(__dirname + '/static'));
 
 app.get('/slack', function (request, response) {
   console.log("hitting slack");
@@ -33,27 +27,33 @@ app.post('/slackPost', function (request, response) {
 
 })
 app.get('/redirect', function (request, response) {
+
+
+
+
+
   console.log("code : ", request.query.code);
   if (request.query.code) {
+    var a = {
+      'client_id': '97506057222.98232203285',
+      "client_secret": 'ed83bdf3ccef251efbefc23201402c0d',
+      "code": request.query.code
+    }
     requestModule({
       url: 'https://slack.com/api/oauth.access',
-      
+
       method: 'POST',
-      headers: {'content-type' : 'application/x-www-form-urlencoded'},
+      headers: { 'content-type': 'application/x-www-form-urlencoded' },
       // headers: {
       //   'Content-Type': 'MyContentType',
       //   'Custom-Header': 'Custom Value'
       // },
-      body: {
-        'client_id' : '97506057222.98232203285',
-        "client_secret" : 'ed83bdf3ccef251efbefc23201402c0d',
-        "code" : request.query.code
-      }
+      body: JSON.stringify(a)
     }, function (error, response, body) {
       if (error) {
-        console.log("error in request" , error);
+        console.log("error in request", error);
       } else {
-        console.log( "response : ", response.statusCode, body);
+        console.log("response : ", response.statusCode, body);
       }
     });
   }
