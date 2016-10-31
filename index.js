@@ -36,20 +36,19 @@ app.get('/redirect', function (request, response) {
   console.log("code : ", request.query.code);
   if (request.query.code) {
     requestModule({
-      url: 'https://spooky-pumpkin-11860.herokuapp.com/slackPost',
+      url: 'https://slack.com/api/oauth.access',
       
       method: 'POST',
       headers: {'content-type' : 'application/x-www-form-urlencoded'},
-      body : 'Hello Testing Test'
       // headers: {
       //   'Content-Type': 'MyContentType',
       //   'Custom-Header': 'Custom Value'
       // },
-      // body: {
-      //   client_id : '97506057222.98232203285',
-      //   client_secret : 'ed83bdf3ccef251efbefc23201402c0d',
-      //   code : request.query.code
-      // }
+      body: {
+        'client_id' : '97506057222.98232203285',
+        "client_secret" : 'ed83bdf3ccef251efbefc23201402c0d',
+        "code" : request.query.code
+      }
     }, function (error, response, body) {
       if (error) {
         console.log("error in request" , error);
