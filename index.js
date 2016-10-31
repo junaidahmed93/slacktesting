@@ -31,6 +31,9 @@ app.post('/slackPost', function (request, response) {
   })  
   
 })
+app.get('/redirect',function(request,response){
+  console.log("code : " ,request.query.code);
+})
 app.get('*',function(request,response){
   var indexViewPath = path.resolve(__dirname,"./static/index.html");
     response.sendFile(indexViewPath);
