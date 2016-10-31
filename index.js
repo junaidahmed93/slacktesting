@@ -37,7 +37,8 @@ app.get('/redirect', function (request, response) {
     var a = {
       client_id: '97506057222.98232203285',
       client_secret: 'ed83bdf3ccef251efbefc23201402c0d',
-      code: request.query.code
+      code: request.query.code,
+      redirect_uri : 'https://spooky-pumpkin-11860.herokuapp.com'
     }
 
     requestModule.post({ url: 'https://slack.com/api/oauth.access', formData: a }, function optionalCallback(err, httpResponse, body) {
