@@ -1,19 +1,22 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require('path');
+
 var app = express();
+
+
 app.use(bodyParser.urlencoded());
-
 app.set('port', (process.env.PORT || 5000));
-
 app.use(express.static(__dirname + '/public'));
+let staticDIR = path.resolve(__dirname, "./static");
+app.use(express.static(staticDIR));
 
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
 
-app.get('/', function (request, response) {
-  response.render('pages/index');
-});
+app.get('*',function(request,response){
+  let indexViewPath = path.resolve(__dirname,"./static/index.html");
+    response.sendFile(indexViewPath);
+})
+
 
 app.get('/slack', function (request, response) {
   console.log("hitting slack");
