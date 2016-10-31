@@ -8,7 +8,7 @@ var app = express();
 app.use(bodyParser.urlencoded());
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
-let staticDIR = path.resolve(__dirname, "./static");
+var staticDIR = path.resolve(__dirname, "./static");
 app.use(express.static(staticDIR));
 
 
@@ -32,7 +32,7 @@ app.post('/slackPost', function (request, response) {
   
 })
 app.get('*',function(request,response){
-  let indexViewPath = path.resolve(__dirname,"./static/index.html");
+  var indexViewPath = path.resolve(__dirname,"./static/index.html");
     response.sendFile(indexViewPath);
 })
 app.listen(app.get('port'), function () {
