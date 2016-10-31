@@ -29,16 +29,35 @@ app.post('/slackPost', function (request, response) {
 app.get('/redirect', function (request, response) {
 
 
-
-
-
   console.log("code : ", request.query.code);
   if (request.query.code) {
     var a = {
       client_id: '97506057222.98232203285',
       client_secret: 'ed83bdf3ccef251efbefc23201402c0d',
       code: request.query.code,
-      redirect_uri : 'https://spooky-pumpkin-11860.herokuapp.com'
+      
+    }
+
+    requestModule.post({ url: 'https://slack.com/api/oauth.access', formData: a }, function optionalCallback(err, httpResponse, body) {
+      if (err) {
+        return console.error('upload failed:', err);
+      }
+      console.log('Upload successful!  Server responded with:', body);
+    });    
+  }
+
+});
+
+app.get('/tryme_redirect', function (request, response) {
+
+
+  console.log("code : ", request.query.code);
+  if (request.query.code) {
+    var a = {
+      client_id: '98238798470.98312577572',
+      client_secret: 'bab50037a5bc69afcf11dba603bdba57',
+      code: request.query.code,
+      
     }
 
     requestModule.post({ url: 'https://slack.com/api/oauth.access', formData: a }, function optionalCallback(err, httpResponse, body) {
