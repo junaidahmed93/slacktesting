@@ -12,15 +12,11 @@ let staticDIR = path.resolve(__dirname, "./static");
 app.use(express.static(staticDIR));
 
 
-app.get('*',function(request,response){
-  let indexViewPath = path.resolve(__dirname,"./static/index.html");
-    response.sendFile(indexViewPath);
-})
+
 
 
 app.get('/slack', function (request, response) {
-  console.log("hitting slack");
-  response.render('pages/slack');
+  console.log("hitting slack");  
 })
 
 app.post('/slackPost', function (request, response) {
@@ -32,11 +28,13 @@ app.post('/slackPost', function (request, response) {
         "text": "Partly cloudy today and tomorrow"
       }
     ]
-  })
-  
+  })  
   
 })
-
+app.get('*',function(request,response){
+  let indexViewPath = path.resolve(__dirname,"./static/index.html");
+    response.sendFile(indexViewPath);
+})
 app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
