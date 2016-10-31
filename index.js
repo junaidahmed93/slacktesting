@@ -35,27 +35,17 @@ app.get('/redirect', function (request, response) {
   console.log("code : ", request.query.code);
   if (request.query.code) {
     var a = {
-      'client_id': '97506057222.98232203285',
-      "client_secret": 'ed83bdf3ccef251efbefc23201402c0d',
-      "code": request.query.code
+      client_id: '97506057222.98232203285',
+      client_secret: 'ed83bdf3ccef251efbefc23201402c0d',
+      code: request.query.code
     }
-    requestModule({
-      url: 'https://slack.com/api/oauth.access',
 
-      method: 'POST',
-      headers: { 'content-type': 'application/x-www-form-urlencoded' },
-      // headers: {
-      //   'Content-Type': 'MyContentType',
-      //   'Custom-Header': 'Custom Value'
-      // },
-      body: JSON.stringify(a)
-    }, function (error, response, body) {
-      if (error) {
-        console.log("error in request", error);
-      } else {
-        console.log("response : ", response.statusCode, body);
+    requestModule.post({ url: 'https://slack.com/api/oauth.access', formData: a }, function optionalCallback(err, httpResponse, body) {
+      if (err) {
+        return console.error('upload failed:', err);
       }
-    });
+      console.log('Upload successful!  Server responded with:', body);
+    });    
   }
 
 })
