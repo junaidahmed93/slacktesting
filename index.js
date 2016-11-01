@@ -13,14 +13,13 @@ app.use(express.static(__dirname + '/static'));
 app.post('/button', function (request, response) {
 
   console.log("===========>>");
-  console.log(request.body);
+  console.log(request.body.payload.actions);
    console.log("===========>>");
 
    var newBody = JSON.stringify(request.body);
 
    console.log("new body" , newBody )
-   console.log(newBody.payload.actions[0]);
-  console.log(request.body.payload.actions);
+  
   if(request.body.actions){
     console.log("hitting");
     response.send({
