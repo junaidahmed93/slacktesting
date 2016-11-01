@@ -13,12 +13,14 @@ app.use(express.static(__dirname + '/static'));
 app.post('/button', function (request, response) {
   console.log(request.body);
   if(request.body.actions.name == 'maze'){
+    console.log("hitting");
     response.send({
       "text" : "Maze Clicked"
     })
     
   }
   else{
+    console.log("not hitting");
     response.send({
       "text" : "Chess clicked"
     })
