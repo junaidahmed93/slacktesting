@@ -11,7 +11,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
 
 app.post('/button', function (request, response) {
-  console.log(request.body.actions);
+  console.log(request.body.payload.actions[0]);
   if(request.body.actions){
     console.log("hitting");
     response.send({
