@@ -10,6 +10,10 @@ app.use(bodyParser.urlencoded());
 app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
 
+app.post('/button', function (request, response) {
+  console.log(request.body);
+})
+
 app.get('/slack', function (request, response) {
   console.log("hitting slack");
 })
