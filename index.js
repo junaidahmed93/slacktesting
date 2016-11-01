@@ -20,7 +20,17 @@ console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
 
    var newBody = JSON.stringify(request.body);
 
+   console.log("After stringify ----------");
    console.log("new body" , newBody )
+    console.log("After stringify ----------");
+
+
+    var newParse = JSON.parse(request.body);
+
+    console.log("After Parsing ++++++++++++++");
+    console.log("new parse" , newParse);
+    console.log("After Parsing ++++++++++++++");
+
   
   if(request.body.actions){
     console.log("hitting");
