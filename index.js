@@ -21,11 +21,11 @@ console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
    var newBody = JSON.stringify(request.body.payload);
 
    console.log("After stringify ----------");
-   console.log("new body" , newBody )
+   console.log("new body" , newBody.actions )
     console.log("After stringify ----------");
 
 
-    var newParse = JSON.parse(request.body);
+    var newParse = JSON.parse(request.body.payload);
 
     console.log("After Parsing ++++++++++++++");
     console.log("new parse" , newParse);
