@@ -11,19 +11,6 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
 
 app.post('/button', function (request, response) {
-console.log(request.body);
-console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
-
-  console.log("===========>>");
-  console.log(request.body.payload.actions);
-   console.log("===========>>");
-
-   var newBody = JSON.stringify(request.body.payload);
-
-   console.log("After stringify ----------");
-   console.log("new body" , newBody.actions )
-    console.log("After stringify ----------");
-
 
     var newParse = JSON.parse(request.body.payload);
 
@@ -32,7 +19,7 @@ console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
     console.log("After Parsing ++++++++++++++");
 
   
-  if(request.body.actions){
+  if(newParse.actions[0].name == 'Maze'){
     console.log("hitting");
     response.send({
       "text" : "Maze Clicked"
