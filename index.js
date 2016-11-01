@@ -91,6 +91,7 @@ app.get('/redirect', function (request, response) {
         return console.error('upload failed:', err);
       }
       console.log('Upload successful!  Server responded with:', body);
+      response.render("./static/index");
     });
   }
 
