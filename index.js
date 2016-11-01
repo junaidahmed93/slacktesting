@@ -28,7 +28,7 @@ console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
     var newParse = JSON.parse(request.body.payload);
 
     console.log("After Parsing ++++++++++++++");
-    console.log("new parse" , newParse);
+    console.log("new parse" , newParse.actions[0].name);
     console.log("After Parsing ++++++++++++++");
 
   
