@@ -12,7 +12,7 @@ app.use(express.static(__dirname + '/static'));
 
 app.post('/button', function (request, response) {
   console.log(request.body);
-  if(request.body.actions.name == 'maze'){
+  if(request.body.actions[0].name == 'maze'){
     console.log("hitting");
     response.send({
       "text" : "Maze Clicked"
