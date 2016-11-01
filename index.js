@@ -47,10 +47,10 @@ app.post('/slackPost', function (request, response) {
   console.log(request.body);
 
   response.send({
-    "text": "Would you like to play a game?",
+    "text": "You are not a Nobly User",
     "attachments": [
       {
-        "text": "You are not Authenticated on Nobly",
+        "text": "Register using /register [email]",
         "fallback": "You are unable to choose a game",
         "callback_id": "wopr_game",
         "color": "#3AA3E3",
@@ -74,6 +74,10 @@ app.post('/slackPost', function (request, response) {
   })
 
 })
+
+app.post('/register',function(request,response){
+  console.log("register email body",request.body);
+});
 app.get('/redirect', function (request, response) {
 
 
