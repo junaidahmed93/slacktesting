@@ -21,18 +21,20 @@ app.post('/button', function (request, response) {
 
   if (newParse.actions[0].name == 'true') {
     console.log("hitting");
-    response.redirect(200, 'https://www.facebook.com/');
+    // response.redirect(200, 'https://www.facebook.com/');
     response.send({
-      "text": "Maze Clicked"
+      "text": "Maze Clicked",
+      "redirect" : "https://www.facebook.com"
     })
 
   }
   else {
     console.log("not hitting");
-    response.redirect(200 , 'https://www.facebook.com/');
+    // response.redirect(200 , 'https://www.facebook.com/');
 
     response.send({
-      "text": "Chess clicked"
+      "text": "Chess clicked",
+      "redirect" : "https://www.facebook.com"
     })
   }
 })
