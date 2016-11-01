@@ -77,6 +77,8 @@ app.post('/slackPost', function (request, response) {
 
 app.post('/register',function(request,response){
   console.log("register email body",request.body);
+
+  response.send({"text" : "Confirmation Email sended"});
 });
 app.get('/redirect', function (request, response) {
 
