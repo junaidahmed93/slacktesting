@@ -12,6 +12,17 @@ app.use(express.static(__dirname + '/static'));
 
 app.post('/button', function (request, response) {
   console.log(request.body);
+  if(request.body.actions.name == 'maze'){
+    response.send({
+      "text" : "Maze Clicked"
+    })
+    
+  }
+  else{
+    response.send({
+      "text" : "Chess clicked"
+    })
+  }
 })
 
 app.get('/slack', function (request, response) {
