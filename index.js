@@ -18,7 +18,7 @@ console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
   console.log(request.body.payload.actions);
    console.log("===========>>");
 
-   var newBody = JSON.stringify(request.body);
+   var newBody = JSON.stringify(request.body.payload);
 
    console.log("After stringify ----------");
    console.log("new body" , newBody )
