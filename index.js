@@ -11,6 +11,8 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
 
 app.post('/button', function (request, response) {
+console.log(request.body);
+console.log("Orginal End ================>>>>>>>>>>>>>>>>>>>");
 
   console.log("===========>>");
   console.log(request.body.payload.actions);
