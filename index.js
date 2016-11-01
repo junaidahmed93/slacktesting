@@ -19,11 +19,11 @@ app.post('/button', function (request, response) {
   console.log("After Parsing ++++++++++++++");
 
 
-  if (newParse.actions[0].name == 'true') {
+  if (newParse.actions[0].name == 'Auth Now') {
     console.log("hitting");
     // response.redirect(200, 'https://www.facebook.com/');
     response.send({
-      "text": "Maze Clicked",
+      "text": "Auth Now Clicked",
       "redirect" : "https://www.facebook.com"
     })
 
@@ -33,7 +33,7 @@ app.post('/button', function (request, response) {
     // response.redirect(200 , 'https://www.facebook.com/');
 
     response.send({
-      "text": "Chess clicked",
+      "text": "Auth Later clicked",
       "redirect" : "https://www.facebook.com"
     })
   }
