@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var requestModule = require('request');
+var firebase = require('firebase');
 
 var app = express();
 
@@ -9,6 +10,11 @@ var app = express();
 app.use(bodyParser.urlencoded());
 app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
+
+firebase.initializeApp({
+    serviceAccount: './SlackApp-4e9f3be310b4.json',
+    databaseURL : 'https://slackapp-a4a5d.firebaseio.com'
+})
 
 app.post('/button', function (request, response) {
 
@@ -78,6 +84,9 @@ app.post('/slackPost', function (request, response) {
 app.post('/register',function(request,response){
   console.log("register email body",request.body);
   console.log(request.body.text)
+  firebase.database().ref('/user').set({
+      email : request.body.text
+  })
 
   response.send({"text" : "Confirmation Email sended"});
 });
