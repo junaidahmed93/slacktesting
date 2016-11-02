@@ -94,8 +94,8 @@ app.post('/slackPost', function (request, response) {
         // ]
     })
 
-})
-
+})       
+////
 app.post('/register', function (request, response) {
     var password = '123456';
     console.log("register email body", request.body);
