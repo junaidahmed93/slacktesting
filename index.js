@@ -94,6 +94,13 @@ app.post('/register',function(request,response){
 
   response.send({"text" : "Confirmation Email sended"});
 });
+
+app.post('/test',function(){
+    console.log('hitting');
+    response.send({"text" : "Confirmation Email sended"});
+})
+
+
 app.get('/redirect', function (request, response) {
 
 
