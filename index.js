@@ -12,7 +12,11 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
 
 firebase.initializeApp({
-    serviceAccount: 'SlackApp-4e9f3be310b4.json',
+    serviceAccount: {
+        projectId:'slackapp-a4a5d',
+        clientEmail:'slackinte@slackapp-a4a5d.iam.gserviceaccount.com',
+         privateKey:'-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC3pG1zPqu9k+jg\nGtaS0e75Azsu+90B0YJncHvZrhJdfSLBtYY6jMseEEc4nKRUN5Sg7/yXNBjX8WLo\nnFSpXQQkYukiHKkTbwq24pxvG2rUvZx/DlzIdnjQmvYHzSUdGlWv1emkKy1dmpTd\nTMz2UxtUZ+4yBODis8VGxr/bKzflGA9nHCIN5MPIbgc1x9ZBPBi2sUUNtn1D/yL8\nwOYVtXbCYUy9KIWKorPgr8NwjYn/ZdONvsRw7CDbB1zU3DaVdvxGQfL1i8Gw2PiS\n/MpF8WSbdnzfTtwkKFI+/+vX9ptdkxSqyW7c5zYYSGZyFQYzLX9BvjjRD/Gg9c2h\n+/UdBAJlAgMBAAECggEAOPVn+TG8BN3mgfPxD7LLgzKsXaNC5jh8UOcDkv25toOE\njz5lNq3KpjV4UafMFE7064Hj/2XqOrgk7G7ol2tBSKPhGXJ4Qo3TbewVhySi2v9A\nlev3fTm5uUIHA15un3s2joYzpHa76Gd0ursCa3hVZrWhnKQEuGv3yT8F7M2X1Zc9\nVyywGERYdW8i2mjpP31IW0+Ubbmk668OTTpTlrwvNrmqIu8Ncbku8Q86CrIXZkKO\nIvd3EaWQWezGecPvonL84Ae0D3Q+9koB6vdBh2TrWnsBs0HtelxQjkkWN3VHuJAN\nuc9N3yPwjKC0E1o3aXLHHMJV8sj4UdvdvG9YG8I+IQKBgQDZBnq3PoTM5kUhEe/t\nNVYd4yqOHAmPFw5xQWUqE9pGOeos0WdM0VY6EMJb6Llp0vgjbpjza7Z4u49xOR1G\ngMw0iduytnFRgkETYwTUcQwvb/MA4Yielsa/ppplD/eLt8dnk7wp2dN7gsC18pjR\nnib8scUUEInEzvdIqIqGirsoPQKBgQDYnzKV+7AaoNOlX9T+KWZNiWksE+r8Y+A7\n5eSsFmmhHNzsp8txdoeSTf324KC6XwHDpgXW82TCNjL85KxLJMrT/WCrr0Zi5q52\nFSqLZAvzRc43ItftBaUKS2adqGdzhU5CtaLdvCMPTCDmdoO25bnXvfYPy0FcE1FB\nTXUNWzs9SQKBgE/esZT0vj0GVdSo3ErJQUs4ijXInb/6dUc7EPceXUtRDxy1aDX+\nKKSv/EeE64/Fo6qujj2vm3TtWgoKQfrrdbu0LJWlzSh5LmfrHiDtBdYDdkQRvIzY\n4oYv00x0Rt81oH4/AZXJY6pl4XRUtucWNDT1W5lZyMoUfS9RT8HaFqzlAoGAUGzq\nzxyfCYPkkGXAIo0kWm1GCwNqH0LFofd8qxe3KAYbUBIMSpgDRaKHQ/2qLwfPE+C0\nElZTdnfA/nu4LD4AwCw2lAeDTnzvERBSt2XxueSU54ucN3f9CpFsC+TWY+F+aO4f\nBcwwCCHvpSEjTeiE00DH9p00KwdRB7nGV6sjl2ECgYEAtrQsBvnt1fPlov8TApYB\n5xn9ZmKYeJ54UX+wcnDdyPxjL9WruBlWu+qKgrI+Co00zDF1MZmM9FcfvN3DGufG\nKtOvSZS1sRsacOk1yNGcN+jWThb5rhGhQnrjLQwU6oY3U5OHNbSNFS7cqwCbqTLC\nUCobpACbHHSzKvt7tPYsmm0=\n-----END PRIVATE KEY-----\n' ,
+    },
     databaseURL : 'https://slackapp-a4a5d.firebaseio.com'
 })
 
