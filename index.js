@@ -86,11 +86,19 @@ app.post('/slackPost', function (request, response) {
 })
 
 app.post('/register',function(request,response){
+    var password = 123456
   console.log("register email body",request.body);
   console.log(request.body.text)
    firebase.database().ref('/user').set({
        email : request.body.text
    })
+   firebase.auth().createUserWithEmailAndPassword(request.body.text, password).catch(function (error) {
+        // Handle Errors here.
+        console.log("Inthe middle");
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log("Error in auth" ,error);
+    });
 
   response.send({"text" : "Confirmation Email sended"});
 });
