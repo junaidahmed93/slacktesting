@@ -103,7 +103,14 @@ app.post('/register', function (request, response) {
     firebase.database().ref('/user').push({
         email: request.body.text
     })
-    firebase.auth().createUserWithEmailAndPassword(request.body.text, password).catch(function (error) {
+
+
+
+    firebase.auth().createUserWithEmailAndPassword(request.body.text, password)
+    .then(function(result){
+        console.log("this is result",result);
+    })
+    .catch(function (error) {
         // Handle Errors here.
         console.log("Inthe middle");
         var errorCode = error.code;
