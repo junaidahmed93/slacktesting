@@ -12,7 +12,7 @@ app.set('port', (process.env.PORT || 3000));
 app.use(express.static(__dirname + '/static'));
 
 firebase.initializeApp({
-    serviceAccount: './SlackApp-4e9f3be310b4.json',
+    serviceAccount: 'SlackApp-4e9f3be310b4.json',
     databaseURL : 'https://slackapp-a4a5d.firebaseio.com'
 })
 
