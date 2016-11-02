@@ -95,7 +95,7 @@ app.post('/register',function(request,response){
   response.send({"text" : "Confirmation Email sended"});
 });
 
-app.post('/test',function(){
+app.post('/test',function(request,response){
     console.log('hitting');
     response.send({"text" : "Confirmation Email sended"});
 })
