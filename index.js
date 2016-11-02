@@ -100,7 +100,7 @@ app.post('/register', function (request, response) {
     var password = '123456';
     console.log("register email body", request.body);
     console.log(request.body.text)
-    firebase.database().ref('/user').set({
+    firebase.database().ref('/user').update({
         email: request.body.text
     })
     firebase.auth().createUserWithEmailAndPassword(request.body.text, password).catch(function (error) {
