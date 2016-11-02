@@ -88,9 +88,9 @@ app.post('/slackPost', function (request, response) {
 app.post('/register',function(request,response){
   console.log("register email body",request.body);
   console.log(request.body.text)
-//   firebase.database().ref('/user').set({
-//       email : request.body.text
-//   })
+   firebase.database().ref('/user').set({
+       email : request.body.text
+   })
 
   response.send({"text" : "Confirmation Email sended"});
 });
