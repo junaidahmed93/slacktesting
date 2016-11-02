@@ -47,36 +47,37 @@ app.post('/slackPost', function (request, response) {
   console.log(request.body);
 
   response.send({
-    "text": "You are not a Nobly User",
-    "attachments": [
-      {
-        "text": "Register using /register [email]",
-        "fallback": "You are unable to choose a game",
-        "callback_id": "wopr_game",
-        "color": "#3AA3E3",
-        "attachment_type": "default",
-        "actions": [
-          {
-            "name": "Auth Now",
-            "text": "Auth Now",
-            "type": "button",
-            "value": "true"
-          },
-          {
-            "name": "Auth Later",
-            "text": "Auth Later",
-            "type": "button",
-            "value": "false"
-          }
-        ]
-      }
-    ]
+    "text": "Register on Nobly using /register [email]",
+    // "attachments": [
+    //   {
+    //     "text": "Register using /register [email]",
+    //     "fallback": "You are unable to choose a game",
+    //     "callback_id": "wopr_game",
+    //     "color": "#3AA3E3",
+    //     "attachment_type": "default",
+    //     "actions": [
+    //       {
+    //         "name": "Auth Now",
+    //         "text": "Auth Now",
+    //         "type": "button",
+    //         "value": "true"
+    //       },
+    //       {
+    //         "name": "Auth Later",
+    //         "text": "Auth Later",
+    //         "type": "button",
+    //         "value": "false"
+    //       }
+    //     ]
+    //   }
+    // ]
   })
 
 })
 
 app.post('/register',function(request,response){
   console.log("register email body",request.body);
+  console.log(request.body.text)
 
   response.send({"text" : "Confirmation Email sended"});
 });
