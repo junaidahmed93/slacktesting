@@ -97,18 +97,14 @@ app.post('/slackPost', function (request, response) {
 })       
 ////a
 app.post('/register', function (request, response) {
-    var password = '123456';
-    console.log("register email body", request.body);
+    var password = '123456';    
     console.log(request.body.text)
-    firebase.database().ref('/user').push({
+    firebase.auth().createUserWithEmailAndPassword(request.body.text, password)
+    .then(function(result){       
+        console.log("UID" , result.uid);
+        firebase.database().ref('/users').child(result.uid).update({
         email: request.body.text
     })
-
-
-
-    firebase.auth().createUserWithEmailAndPassword(request.body.text, password)
-    .then(function(result){
-        console.log("this is result",result);
     })
     .catch(function (error) {
         // Handle Errors here.
@@ -151,17 +147,13 @@ app.get('/redirect', function (request, response) {
 });
 
 app.get('/tryme_redirect', function (request, response) {
-
-
     console.log("code : ", request.query.code);
     if (request.query.code) {
         var a = {
             client_id: '98238798470.98312577572',
             client_secret: 'bab50037a5bc69afcf11dba603bdba57',
             code: request.query.code,
-
         }
-
         requestModule.post({ url: 'https://slack.com/api/oauth.access', formData: a }, function optionalCallback(err, httpResponse, body) {
             if (err) {
                 return console.error('upload failed:', err);
@@ -171,6 +163,11 @@ app.get('/tryme_redirect', function (request, response) {
     }
 
 })
+
+app.post('/interactive',function(request,response){
+    console.log(request.body);
+})
+
 app.get('*', function (request, response) {
     var indexViewPath = path.resolve(__dirname, "./static/index.html");
     response.sendFile(indexViewPath);
