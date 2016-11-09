@@ -34,7 +34,7 @@ firebase.initializeApp(config);
 app.post('/interactive', function (request, response) {
 
     var newParse = JSON.parse(request.body.payload);
-
+    console.log("new Parse" , newParse);
     console.log("After Parsing ++++++++++++++");
     console.log("new parse", newParse.actions[0].name);
     console.log("After Parsing ++++++++++++++");
