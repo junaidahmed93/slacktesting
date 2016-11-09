@@ -41,19 +41,17 @@ app.post('/interactive', function (request, response) {
 
 
     if (newParse.actions[0].name == 'Auth Now') {
-        console.log("hitting");
-        // response.redirect(200, 'https://www.facebook.com/');
-        response.redirect('https://www.facebook.com/');
-        response.send({
-            "text": "Auth Now Clicked",
-            "redirect": "https://www.facebook.com"
-        })
+        console.log("hitting");      
+        response.redirect(200,'https://www.facebook.com/');
+        // response.send({
+        //     "text": "Auth Now Clicked",
+        //     "redirect": "https://www.facebook.com"
+        // })
 
     }
     else {
-        console.log("not hitting");
-        // response.redirect(2'https://www.facebook.com/');
-        response.redirect('https://www.facebook.com/');
+        console.log("not hitting");      
+        response.redirect(200,'https://www.facebook.com/');
         response.send({
             "text": "Auth Later clicked",
             "redirect": "https://www.facebook.com"
