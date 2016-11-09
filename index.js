@@ -31,7 +31,7 @@ firebase.initializeApp(config);
 //     apiKey: "AIzaSyAjrcPQmUp3UppPrLaHipoSb7FBpFSxh1Q",
 // })
 
-app.post('/button', function (request, response) {
+app.post('/interactive', function (request, response) {
 
     var newParse = JSON.parse(request.body.payload);
 
