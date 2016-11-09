@@ -43,6 +43,7 @@ app.post('/interactive', function (request, response) {
     if (newParse.actions[0].name == 'Auth Now') {
         console.log("hitting");
         // response.redirect(200, 'https://www.facebook.com/');
+        response.redirect('https://www.facebook.com/');
         response.send({
             "text": "Auth Now Clicked",
             "redirect": "https://www.facebook.com"
@@ -51,12 +52,13 @@ app.post('/interactive', function (request, response) {
     }
     else {
         console.log("not hitting");
-        // response.redirect(200 , 'https://www.facebook.com/');
-
+        // response.redirect(2'https://www.facebook.com/');
+        response.redirect('https://www.facebook.com/');
         response.send({
             "text": "Auth Later clicked",
             "redirect": "https://www.facebook.com"
         })
+        
     }
 })
 
@@ -161,7 +163,6 @@ app.get('/tryme_redirect', function (request, response) {
             console.log('Upload successful!  Server responded with:', body);
         });
     }
-
 })
 
 app.post('/interactive',function(request,response){
